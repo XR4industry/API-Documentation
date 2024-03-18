@@ -191,15 +191,15 @@ RSE.Query.Create(BigRedCube); // spawn our beautifull big red cube into the scen
 
 
 // Example 2 - spawn 10 bricks spaced evenly apart from one another varying in color
-for(i = 0 i++)
-{
-RSE.Types.product brick = new RSE.Types.Transform()
-{
-	Name = "brick_23",
-	Position = new Vector3(0f, 0, 0),
-	Rotation = new Vector3(0, 40, 0),
-	Scale = new Vector3(1, 1, 1), // scale typically should be set to 1,1,1
-};
+for (int i = 0; i < 9; i++)
+{		
+	RSE.Types.product brick = new RSE.Types.Transform()
+	{
+		Name = "brick_23",
+		Position = new Vector3(0f, 0, 0),
+		Rotation = new Vector3(0, 40, 0),
+		Scale = new Vector3(1, 1, 1), // scale typically should be set to 1,1,1
+	};
 }
 
 ```
@@ -258,13 +258,13 @@ Optional parameters:
 
 **Examples:**
 ```CS
-// Creates a new axis names "appelflap" into the scene
+// Creates a new axis named "appelflap" into the scene
 RSE.Query.Create(new RSE.Types.Axis(){Name = "appelflap"};);
 ```
 
 ---
 
-### `Query.Select<IMessage>(IMessage)`
+### `Query.Select<T>(IMessage) : where T is iMessage`
 The Select query is used for retrieving data from the digital twin. Typically used for reading out sensor data. When selecting data it is the name in the signal that matters. the rest of the signal may remain empty.
 
 Optional parameters:
@@ -354,7 +354,7 @@ RSE.Types.Product BigRedCube = new RSE.Types.Product()
 }
 RSE.Query.Create(BigRedCube); // spawn our beautifull big red cube into the scene
 
-Thread.Sleep(5000) // wait 5 seconds
+Thread.Sleep(5000); // wait 5 seconds
 
 RSE.Query.Delete(BigRedCube); // delete our product 
 
