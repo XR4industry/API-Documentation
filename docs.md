@@ -57,17 +57,17 @@ Optional parameters:
 
 **Examples:**
 ```CS
-// example 1 - making a simple local connection
+// Example 1 - making a simple local connection
 Request.Connect();
 
 
-// example 2 - opening two local connections
+// Example 2 - opening two local connections
 Request.Connect(6969);
 Request.Connect(4200);
 // Queries will now connect to endpoint 4200 to send queries to 6969 connnect to it again to switch connection
 
 
-// example 3 - local network connection
+// Example 3 - local network connection
 Request.Connect(5555, "tcp://<local IP>:");
 
 ```
@@ -195,10 +195,13 @@ for (int i = 0; i < 9; i++)
 {		
 	RSE.Types.product brick = new RSE.Types.Transform()
 	{
-		Name = "brick_23",
-		Position = new Vector3(0f, 0, 0),
-		Rotation = new Vector3(0, 40, 0),
-		Scale = new Vector3(1, 1, 1), // scale typically should be set to 1,1,1
+		Name = $"brick_{i}}", // adds a number to the product to ensure product names are unique
+		Transform = new Transform()
+		{
+			Position = new Vector3(0,0,0),
+			Rotation = new Vector3(0,0,0),
+			Scale = new Vector3(1,1,1),// scale typically should be set to 1,1,1
+		}
 	};
 }
 
@@ -297,7 +300,7 @@ Optional parameters:
 **Examples:**
 ```CS
 // Example 1 - move a robot by 20 degrees
-RSE.Query.Update(new Axis({Name = "RobotBottomAxis", Value = 20}));
+RSE.Query.Update(new Axis(){Name = "RobotBottomAxis", Value = 20});
 
 
 // Example 2 - interpolate movement
@@ -427,6 +430,6 @@ internal List<Product> CheckForVisionUpdates()
 }
 
 ```
+Vision sensor diagram:
 
-Diagram:
 ![VisionSensorDiagram](image.png)
